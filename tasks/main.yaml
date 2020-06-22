@@ -1,7 +1,7 @@
 ---
 - name: Add Docker repository GPG key
   apt_key:
-    url: "https://download.docker.com/linux/ubuntu/gpg"
+    url: "https://download.docker.com/linux/{{ ansible_distribution | lower }}/gpg"
 
 - name: Add Docker CE repo
   apt_repository:
