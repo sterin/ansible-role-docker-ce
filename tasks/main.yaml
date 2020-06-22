@@ -16,10 +16,15 @@
     - python
     - python-pip
     - python-setuptools
+    - libffi-dev
+    - python-backports.ssl-match-hostname
 
-- name: Install docker-compose
+- name: Install docker and docker-compose
   pip:
-    name: docker-compose
+    state: latest
+    name:
+      - docker
+      - docker-compose
 
 - name: Add users to the docker group
   user:
@@ -27,4 +32,3 @@
     groups:
       - docker
   with_items: "{{ docker_users }}"
-
